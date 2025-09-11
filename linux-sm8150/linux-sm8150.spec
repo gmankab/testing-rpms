@@ -24,7 +24,7 @@ Provides:        kernel-modules-core  = %{version}-%{release}
 Mainline kernel for sm8150 (qcom snapdragon 855/860) devices.
 
 %prep
-%autosetup -n linux-sm8150-%{version}-nabu
+%autosetup -n linux-%{version}-nabu
 
 make defconfig sm8150.config
 
