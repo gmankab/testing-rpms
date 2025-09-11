@@ -6,7 +6,7 @@ Name:            kernel
 Summary:         linux-sm8150 kernel
 License:         GPLv2
 URL:             https://github.com/rodriguezst/linux
-Source0:         %{url}/archive/refs/heads/%{version}-nabu.tar.gz
+Source0:         %{url}/archive/refs/heads/v%{version}-nabu.tar.gz
 Source1:         extra-sm8150.config
 
 BuildRequires:   bc bison dwarves diffutils elfutils-devel findutils gcc gcc-c++ git-core hmaccalc hostname make openssl-devel perl-interpreter rsync tar which flex bzip2 xz zstd python3 python3-devel python3-pyyaml rust rust-src bindgen rustfmt clippy opencsd-devel net-tools
