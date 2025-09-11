@@ -6,7 +6,7 @@ Name:            kernel
 Summary:         linux-sm8150 kernel
 License:         GPLv2
 URL:             https://github.com/rodriguezst/linux
-Source0:         %{url}/archive/refs/heads/%{Version}-nabu.tar.gz
+Source0:         %{url}/archive/refs/heads/%{version}-nabu.tar.gz
 Source1:         extra-sm8150.config
 
 BuildRequires:   bc bison dwarves diffutils elfutils-devel findutils gcc gcc-c++ git-core hmaccalc hostname make openssl-devel perl-interpreter rsync tar which flex bzip2 xz zstd python3 python3-devel python3-pyyaml rust rust-src bindgen rustfmt clippy opencsd-devel net-tools
@@ -24,7 +24,7 @@ Provides:        kernel-modules-core  = %{version}-%{release}
 Mainline kernel for sm8150 (qcom snapdragon 855/860) devices.
 
 %prep
-%autosetup -n linux-sm8150-%{Version}-nabu
+%autosetup -n linux-sm8150-%{version}-nabu
 
 make defconfig sm8150.config
 
