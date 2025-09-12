@@ -26,7 +26,7 @@ Mainline kernel for sm8150 (qcom snapdragon 855/860) devices.
 %prep
 %autosetup -n linux-%{version}-nabu
 
-make defconfig
+make defconfig sm8150.config
 
 %build
 sed -i '/^CONFIG_LOCALVERSION=/d' .config
