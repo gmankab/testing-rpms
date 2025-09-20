@@ -1,12 +1,13 @@
 %undefine        _debugsource_packages
+%global tag      6.16
 Version:         6.16.0
-Release:         4.sm8150%{?dist}
+Release:         0.sm8150%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
 Summary:         linux-sm8150 kernel
 License:         GPLv2
-URL:             https://github.com/rodriguezst/linux
-Source0:         %{url}/archive/refs/heads/v%{version}-nabu.tar.gz
+URL:             https://gitlab.com/sm8150-mainline/linux
+Source0:         %{url}/-/archive/sm8150/%{tag}/linux-sm8150-%{tag}.tar.gz
 Source1:         extra-sm8150.config
 
 BuildRequires:   bc bison dwarves diffutils elfutils-devel findutils gcc gcc-c++ git-core hmaccalc hostname make openssl-devel perl-interpreter rsync tar which flex bzip2 xz zstd python3 python3-devel python3-pyyaml rust rust-src bindgen rustfmt clippy opencsd-devel net-tools
@@ -24,7 +25,7 @@ Provides:        kernel-modules-core  = %{version}-%{release}
 Mainline kernel for sm8150 (qcom snapdragon 855/860) devices.
 
 %prep
-%autosetup -n linux-%{version}-nabu
+%autosetup -n linux-sm8150-%{tag}
 
 make defconfig sm8150.config
 
@@ -47,9 +48,8 @@ install -Dm644 System.map %{buildroot}/usr/lib/modules/%{uname_r}/System.map
 install -Dm644 .config    %{buildroot}/usr/lib/modules/%{uname_r}/config
 
 install -d %{buildroot}/usr/lib/modules/%{uname_r}/dtb/qcom
-install -Dm644 arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dtb %{buildroot}/usr/lib/modules/%{uname_r}/dtb/qcom/sm8150-xiaomi-nabu.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sm8150-xiaomi-nabu.dtb %{buildroot}/usr/lib/modules/%{uname_r}/devicetree
 install -d %{buildroot}/usr/lib/kernel
-echo 'qcom/sm8150-xiaomi-nabu.dtb' > %{buildroot}/usr/lib/kernel/devicetree
 
 install -Dm644 arch/arm64/boot/Image %{buildroot}/usr/lib/modules/%{uname_r}/vmlinuz
 install -d %{buildroot}/boot
@@ -84,5 +84,5 @@ if [ "$1" -eq 0 ] ; then
 fi
 
 %changelog
-* Wed Sep 10 2025 gmanka 6.16.0
-- 6.16.0
+* Fri Jul 25 2025 gmanka 6.16.0
+- update to 6.16.0

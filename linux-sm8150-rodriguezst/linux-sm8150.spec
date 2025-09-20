@@ -1,13 +1,12 @@
 %undefine        _debugsource_packages
-%global tag      6.16
 Version:         6.16.0
-Release:         3.sm8150%{?dist}
+Release:         0.rodriguezst.sm8150%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
 Summary:         linux-sm8150 kernel
 License:         GPLv2
-URL:             https://gitlab.com/sm8150-mainline/linux
-Source0:         %{url}/-/archive/sm8150/%{tag}/linux-sm8150-%{tag}.tar.gz
+URL:             https://github.com/rodriguezst/linux
+Source0:         %{url}/archive/refs/heads/v%{version}-nabu.tar.gz
 Source1:         extra-sm8150.config
 
 BuildRequires:   bc bison dwarves diffutils elfutils-devel findutils gcc gcc-c++ git-core hmaccalc hostname make openssl-devel perl-interpreter rsync tar which flex bzip2 xz zstd python3 python3-devel python3-pyyaml rust rust-src bindgen rustfmt clippy opencsd-devel net-tools
@@ -25,7 +24,7 @@ Provides:        kernel-modules-core  = %{version}-%{release}
 Mainline kernel for sm8150 (qcom snapdragon 855/860) devices.
 
 %prep
-%autosetup -n linux-sm8150-%{tag}
+%autosetup -n linux-%{version}-nabu
 
 make defconfig sm8150.config
 
@@ -85,5 +84,4 @@ if [ "$1" -eq 0 ] ; then
 fi
 
 %changelog
-* Fri Sep 12 2025 gmanka 6.16.0
-- 6.16.0
+* Wed Sep 10 2025 gmanka 6.16.0
