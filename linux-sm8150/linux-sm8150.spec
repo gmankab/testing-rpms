@@ -64,7 +64,7 @@ ln -s ../modules/%{uname_r}/initramfs.img %{buildroot}/usr/lib/ostree-boot/initr
 /usr/lib/modules/%{uname_r}
 /usr/lib/ostree-boot/vmlinuz-%{uname_r}
 /usr/lib/ostree-boot/initramfs-%{uname_r}.img
-/usr/lib/kernel/devicetree
+/usr/lib/modules/%{uname_r}/devicetree
 
 %posttrans
 set -e
