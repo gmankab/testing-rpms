@@ -1,6 +1,6 @@
 %undefine        _debugsource_packages
-%global tag      6.16-rc2-4
-Version:         6.16.0
+%global tag      6.16.7-r0
+Version:         6.16.7
 Release:         0.rc2.sdm845%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
