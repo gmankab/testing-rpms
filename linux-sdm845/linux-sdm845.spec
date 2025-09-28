@@ -1,7 +1,7 @@
 %undefine        _debugsource_packages
 %global tag      6.16.7-r0
 Version:         6.16.7
-Release:         0.rc2.sdm845%{?dist}
+Release:         1.sdm845%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
 Summary:         linux-sdm845 kernel
