@@ -49,9 +49,8 @@ install -Dm644 System.map %{buildroot}/usr/lib/modules/%{uname_r}/System.map
 install -Dm644 .config    %{buildroot}/usr/lib/modules/%{uname_r}/config
 
 install -d %{buildroot}/usr/lib/modules/%{uname_r}/dtb/qcom
-install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-enchilada.dtb %{buildroot}/usr/lib/modules/%{uname_r}/dtb/qcom/sdm845-oneplus-enchilada.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-enchilada.dtb %{buildroot}/usr/lib/modules/%{uname_r}/devicetree
 install -d %{buildroot}/usr/lib/kernel
-echo 'qcom/sdm845-oneplus-enchilada.dtb' > %{buildroot}/usr/lib/kernel/devicetree
 
 install -Dm644 arch/arm64/boot/Image %{buildroot}/usr/lib/modules/%{uname_r}/vmlinuz
 install -d %{buildroot}/boot
@@ -66,7 +65,7 @@ ln -s ../modules/%{uname_r}/initramfs.img %{buildroot}/usr/lib/ostree-boot/initr
 /usr/lib/modules/%{uname_r}
 /usr/lib/ostree-boot/vmlinuz-%{uname_r}
 /usr/lib/ostree-boot/initramfs-%{uname_r}.img
-/usr/lib/kernel/devicetree
+/usr/lib/modules/%{uname_r}/devicetree
 
 %posttrans
 set -e
