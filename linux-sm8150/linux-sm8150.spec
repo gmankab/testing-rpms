@@ -1,7 +1,6 @@
-%undefine        _debugsource_packages
 %global tag      6.16
 Version:         6.16.0
-Release:         4.test.sm8150%{?dist}
+Release:         5.test.sm8150%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
 Summary:         linux-sm8150 kernel
