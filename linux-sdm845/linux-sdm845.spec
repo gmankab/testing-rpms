@@ -9,7 +9,6 @@ License:         GPLv2
 URL:             https://gitlab.com/sdm845-mainline/linux
 Source0:         %{url}/-/archive/sdm845-%{tag}/linux-sdm845-%{tag}.tar.gz
 Source1:         extra-sdm845.config
-Patch0:          countedby.patch
 
 BuildRequires:   bc bison dwarves diffutils elfutils-devel findutils gcc gcc-c++ git-core hmaccalc hostname make openssl-devel perl-interpreter rsync tar which flex bzip2 xz zstd python3 python3-devel python3-pyyaml rust rust-src bindgen rustfmt clippy opencsd-devel net-tools
 
