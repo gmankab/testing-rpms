@@ -1,7 +1,7 @@
 %undefine        _debugsource_packages
 %global tag      6.16
 Version:         6.16.0
-Release:         3.test.sm8150%{?dist}
+Release:         4.test.sm8150%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
 Summary:         linux-sm8150 kernel
@@ -50,10 +50,9 @@ install -d %{buildroot}/usr/lib/ostree-boot
 
 %posttrans
 set -e
-uname_r=%{uname_r}
-depmod -a "${uname_r}"
-dracut -v --force "/usr/lib/modules/${uname_r}/initramfs.img" "${uname_r}"
-kernel-install add "${uname_r}" "/usr/lib/modules/${uname_r}/vmlinuz" "/usr/lib/modules/${uname_r}/initramfs.img"
+depmod -a %{uname_r}
+dracut /usr/lib/modules/%{uname_r}/initramfs.img %{uname_r}
+kernel-install add %{uname_r} /usr/lib/modules/%{uname_r}/vmlinuz /usr/lib/modules/%{uname_r}/initramfs.img
 
 %changelog
 * Sun Sep 28 2025 gmanka 6.16.0
